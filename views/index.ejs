@@ -11,6 +11,11 @@
 
     <div class="post-text">
         <p>post text area</p>
+        <form action="/submitpost" method="POST">
+            <input name="post-title" type="text" class="post-title" placeholder="Super awesome post title!" />
+            <textarea name="post-text" type="text" class="post-text" placeholder="Amaze us you wordsmith you..."></textarea>
+            <input type="submit" value="Publish" />
+        </form>
     </div>
 
     <div class="post-footer">

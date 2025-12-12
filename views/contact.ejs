@@ -1,11 +1,19 @@
 <%- include("partials/header.ejs") %>
 
-<h1>Talk to me!</h1>
-<form>
-    <input name="name" type="text" class="feedback-input" placeholder="Name" />
-    <input name="email" type="text" class="feedback-input" placeholder="Email" />
-    <textarea name="text" class="feedback-input" placeholder="Say what you must"></textarea>
-    <input type="submit" value="Send it!" />
-</form>
+<div>
+    <% if (locals.emailSent) { %>
+        <h2><%= emailSent %></h2>
+
+    <% } else { %>
+        <h1>Talk to me!</h1>
+        <form action="/submit" method="POST">
+            <input name="name" type="text" class="feedback-input" placeholder="Name" />
+            <input name="email" type="text" class="feedback-input" placeholder="Email" />
+            <textarea name="text" class="feedback-input" placeholder="Say what you must"></textarea>
+            <input type="submit" value="Send it!" />
+        </form>
+    <% } %>
+
+</div>
 
 <%- include("partials/footer.ejs") %>

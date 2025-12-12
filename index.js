@@ -15,12 +15,16 @@ app.get("/contact", (req, res) => {
     res.render("contact.ejs");
 });
 
+// NEEDS TO READ THE POST AND HAVE IT APPEAR ON THE PAGE BELOW THE WRITING AREA
+app.post("/submitpost", (req, res) => {
+    res.render("index.ejs");
+});
 
-                                        // FINISH THIS!!!!
-// setup proper contact form handling
-//app.get("/submit", (req, res) => {
-//    res.render
-//});
+app.post("/submit", (req, res) => {
+   const contactResponse = "Thanks " + req.body["name"] + "! We will email you shortly at " + req.body["email"] + " and respond to your message.";
+   res.render("contact.ejs", { emailSent: contactResponse});
+   console.log(req.body);
+});
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)
