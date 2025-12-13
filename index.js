@@ -21,9 +21,9 @@ app.post("/submitpost", (req, res) => {
 });
 
 app.post("/submit", (req, res) => {
-   const contactResponse = "Thanks " + req.body["name"] + "! We will email you shortly at " + req.body["email"] + " and respond to your message.";
-   res.render("contact.ejs", { emailSent: contactResponse});
-   console.log(req.body);
+    const contactResponse = "Thanks " + req.body["name"] + "! We will email you shortly at " + req.body["email"] + " and respond to your message.";
+    res.render("contact.ejs", { emailSent: contactResponse});
+    sconsole.log(req.body);
 });
 
 app.listen(port, () => {
