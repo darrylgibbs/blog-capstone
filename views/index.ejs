@@ -2,30 +2,42 @@
 
 <p>content space</p>
 
-<div id="post-area">
+<div id="create-post-area">
 
     <!-- This area requires functionality -->
     <div class="post-title">
-        <h1>POST TITLE</h1>
+        <h2>POST TITLE</h2>
     </div>
 
     <div class="post-text">
         <p>post text area</p>
-        <form action="/submitpost" method="POST">
-            <input name="post-title" type="text" class="post-title" placeholder="Super awesome post title!" />
-            <textarea name="post-text" type="text" class="post-text" placeholder="Amaze us you wordsmith you..."></textarea>
+        <form action="/posts" method="POST">
+            <input name="postTitle" type="text" class="post-title" placeholder="Super awesome post title!" />
+            <textarea name="postBody" type="text" class="post-text" placeholder="Amaze us you wordsmith you..."></textarea>
             <input type="submit" value="Publish" />
         </form>
     </div>
 
     <div class="post-footer">
-        <div>
-            Last updated
-        </div>
-        <button>Edit Post</button>
         <button>SUBMIT</button>
     </div>
 
 </div>
+
+<hr />
+
+<% posts.forEach(post => { %>
+    <article>
+        <h2><%= post.newPostTitle %></h2>
+        <p><%= post.newPostBody %></p>
+        <small><%= post.createdAt %></small>
+    </article>
+    <div class="post-footer">
+        <button>Delete Post</button>
+        <button>Edit Post</button>
+        <button>SUBMIT</button>
+    </div>
+<% }) %>
+
 
 <%- include("partials/footer.ejs") %>
